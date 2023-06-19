@@ -1,0 +1,47 @@
+﻿@model IEnumerable<restaurant.Models.Blog>
+
+@foreach (var item in Model)
+{
+    <div class="blo4 p-b-63">
+        <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+            <a>
+                <img src="@item.Image" alt="IMG-BLOG" style="width:300px; height:300px;">
+
+            </a>
+            <div class="date-blo4 flex-col-c-m"style="width:70px; height:70px;">
+                <span class="txt30 m-b-4">
+                    @item.Tarih.ToString("dd")
+                </span>
+                <span class="txt31">
+                    @item.Tarih.ToString("MMMM,yyyy")
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-blo4 p-t-33">
+        <h4 class="p-b-16">
+            <a class="tit9">@item.Title</a>
+
+        </h4>
+        <div class="txt32 flex-w p-b-24">
+            <span>
+                @item.Email
+                <span class="m-r-6 m-l-4">
+                    |
+                </span>
+            </span>
+
+                <span>
+                    @item.Tarih.ToShortDateString()
+                    <span class="m-r-6 m-l-4">
+                        |
+                    </span
+                </span>
+        </div>
+        <p>
+            @item.Mesaj
+        </p>
+
+    </div>
+
+}

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<restaurant.Models.Category>
+<div class="wrap-label-gallery filter-tope-group size27 flex-w flex-sb-m m-l-r-auto flex-col-c-sm p-l-15 p-r-15 m-b-60">
+    <a asp-controller="Home" asp-action="Index" class="label-gallery txt26 trans-0-4 @(ViewBag.KategoriId==null?"is-actived":"")">
+        MENÜLER
+    </a>
+    @foreach(var item in Model)
+    {
+        <a asp-action="CategoryDetails" class="label-gallery txt26 trans-0-4 @(ViewBag.KategoriId?.ToString()==item.Id.ToString()?"is-actived":"")" asp-route-id="@item.Id">@item.Name</a>
+    }
+
+</div>

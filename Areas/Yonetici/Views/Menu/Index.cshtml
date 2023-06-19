@@ -1,0 +1,87 @@
+﻿@model IEnumerable<restaurant.Models.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Menü Ekle</a>
+    </p>
+    <table class="table table-bordered table-striped" Id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Resim
+                </th>
+                <th>
+                    Başlık
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th>
+                    ÖzelMenü
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if(item.Image==null)
+                        {
+                            <img src="~/WebSite/images/noimage.png" width="100" height="80" />
+                        }
+                        else
+                        {
+                            <img src="@item.Image" width="100" height="80">
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @if(item.OzelMenu)
+                        {
+                            <button class="btn btn-success" bt-sm><i class="bi bi-check-circle-fill"></i> Evet</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger" bt-sm><i class="bi bi-x-circle-fill"></i> Hayır</button>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm"><i class="bi bi-pencil-fill"></i> Düzenle</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash-fill"></i> Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+            });
+        });
+    </script>
+}
+
+

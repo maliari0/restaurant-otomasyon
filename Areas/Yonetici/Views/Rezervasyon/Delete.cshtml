@@ -1,0 +1,54 @@
+﻿@model restaurant.Models.Rezervasyon
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Adı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Email
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            TelefonNo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelefonNo)
+        </dd>
+        <dt class = "col-sm-2">
+            Sayi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sayi)
+        </dd>
+        <dt class = "col-sm-2">
+            Saat
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Saat)
+        </dd>
+        <dt class = "col-sm-2">
+            Tarih
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Rezervasyon Kayıt Listesi</a>
+    </form>
+</div>

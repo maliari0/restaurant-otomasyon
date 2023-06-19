@@ -1,0 +1,108 @@
+﻿@model IEnumerable<restaurant.Models.Menu>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<section class="section-slide">
+    <div class="wrap-slick1">
+        <div class="slick1">
+            <div class="item-slick1 item1-slick1" style="background-image: url(/WebSite/images/slide1-01.jpg);">
+                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                    <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+                        Pita Restaurant'a
+                    </span>
+
+                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+                        Hoş Geldİnİz
+                    </h2>
+
+                    <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
+                        <!-- Button1 -->
+                        <a asp-area="Musteri" asp-controller="Home" asp-action="Menu" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                            Menüler
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-slick1 item2-slick1" style="background-image: url(/WebSite/images/master-slides-02.jpg);">
+                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                    <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
+                        Pita Restaurant'a
+                    </span>
+
+                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
+                        Hoş Geldİnİz
+                    </h2>
+
+                    <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
+                        <!-- Button1 -->
+                        <a asp-area="Musteri" asp-controller="Home" asp-action="Menu" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                            Menüler
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-slick1 item3-slick1" style="background-image: url(/WebSite/images/master-slides-01.jpg);">
+                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                    <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
+                        Pita Restaurant'a
+                    </span>
+
+                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
+                        Hoş Geldİnİz
+                    </h2>
+
+                    <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
+                        <!-- Button1 -->
+                        <a asp-area="Musteri" asp-controller="Home" asp-action="Menu" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                            Menüler
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wrap-slick1-dots"></div>
+    </div>
+</section>
+<div class="section-gallery p-t-20">
+    @await Component.InvokeAsync("CategoryList")
+    <!--CategoryList class çağırmak için bu işlemi yaptık-->
+</div>
+
+<section class="section-lunch bgwhite">
+
+    <div class="container">
+        <div class="row p-t-10">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12 col-lg-6">
+                    <!-- Block3 -->
+                    <div class="blo3 flex-w flex-col-l-sm m-b-30">
+                        <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                            <a><img src="@item.Image" alt="IMG-MENU"></a>
+                        </div>
+
+                        <div class="text-blo3 size21 flex-col-l-m">
+                            <a class="txt21 m-b-3">
+                                @item.Title
+                            </a>
+
+                            <span class="txt23">
+                                @item.Description
+                            </span>
+
+                            <span class="txt22 m-t-20">
+                                @item.Price (₺)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

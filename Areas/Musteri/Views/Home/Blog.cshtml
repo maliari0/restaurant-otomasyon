@@ -1,0 +1,64 @@
+﻿@model restaurant.Models.Blog
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<!-- Title Page -->
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(/WebSite/images/bg-title-page-03.jpg);">
+    <h2 class="tit6 t-center">
+        Blog
+    </h2>
+</section>
+
+<!-- Content page -->
+<section>
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-8 col-lg-9">
+                <div class="p-t-80 p-b-124 bo5-r p-r-50 h-full p-r-0-md bo-none-md">
+                    @await Component.InvokeAsync("Comments")
+
+                    <!-- Leave a comment -->
+                    <form class="leave-comment p-t-10" asp-action="Blog" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <textarea asp-for="Mesaj" class="bo-rad-10 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40" placeholder="Mesajınız..."></textarea>
+                        <span asp-validation-for="Mesaj"></span>
+                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
+                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" asp-for="Title" placeholder="Başlık">
+                            <span asp-validation-for="Title"></span>
+                        </div>
+
+                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
+                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" asp-for="Name" placeholder="Adınız...">
+                            <span asp-validation-for="Name"></span>
+                        </div>
+
+                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-30">
+                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" asp-for="Email" placeholder="Email">
+                            <span asp-validation-for="Email"></span>
+                        </div>
+                        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-30">
+                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" asp-for="Image">
+                            
+                        </div>
+
+                        <!-- Button3 -->
+                        <button type="submit" class="btn3 flex-c-m size31 txt11 trans-0-4">
+                            Yorum Yap
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

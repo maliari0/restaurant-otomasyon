@@ -1,0 +1,50 @@
+﻿@model IEnumerable<restaurant.Models.Menu>
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<!-- Title Page -->
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(/WebSite/images/bg-title-page-01.jpg);">
+	<h2 class="tit6 t-center">
+		Menü Lİstesİ
+	</h2>
+</section>
+<div class="section-gallery p-t-20">
+    @await Component.InvokeAsync("CategoryList")
+    <!--CategoryList class çağırmak için bu işlemi yaptık-->
+</div>
+
+<section class="section-lunch bgwhite">
+
+    <div class="container">
+        <div class="row p-t-10">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12 col-lg-6">
+                    <!-- Block3 -->
+                    <div class="blo3 flex-w flex-col-l-sm m-b-30">
+                        <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                            <a><img src="@item.Image" alt="IMG-MENU"></a>
+                        </div>
+
+                        <div class="text-blo3 size21 flex-col-l-m">
+                            <a class="txt21 m-b-3">
+                                @item.Title
+                            </a>
+
+                            <span class="txt23">
+                                @item.Description
+                            </span>
+
+                            <span class="txt22 m-t-20">
+                                @item.Price (₺)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
