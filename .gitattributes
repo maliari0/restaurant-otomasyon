@@ -71,3 +71,5 @@
 *.css linguist-detectable=false
 *.scss linguist-detectable=false
 *.less linguist-detectable=false
+*.py linguist-detectable=false
+*.php linguist-detectable=false
