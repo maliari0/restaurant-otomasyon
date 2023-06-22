@@ -78,7 +78,7 @@ namespace restaurant.Areas.Musteri.Controllers // namespace düzenleme ile homec
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Blog(Blog blog)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 blog.Tarih = DateTime.Now;
                 //yorum tarihi müşteri girmeyecek, sistemden biz çekeceğiz.

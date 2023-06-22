@@ -69,7 +69,7 @@ namespace restaurant.Areas.Yonetici.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Menu menu)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
                 //if dosya kontrolü yaptım
@@ -129,7 +129,7 @@ namespace restaurant.Areas.Yonetici.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Menu menu)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
                 //if dosya kontrolü yaptım
