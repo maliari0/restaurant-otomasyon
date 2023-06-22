@@ -61,8 +61,6 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
-* .cs     diff=csharp
-* .cshtml    diff=csharp
 *.cs linguist-detectable=true  
 *.java linguist-detectable=false  
 *.js linguist-detectable=false  
