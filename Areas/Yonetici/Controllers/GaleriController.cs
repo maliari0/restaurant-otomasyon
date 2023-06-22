@@ -63,7 +63,7 @@ namespace restaurant.Areas.Yonetici.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Galeri galeri)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
                 //if dosya kontrolü yaptım
