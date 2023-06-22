@@ -68,3 +68,4 @@
 *.xml linguist-detectable=false 
 *.asm linguist-detectable=false 
 *.cshtml linguist-detectable=false
+*.css linguist-detectable=false
