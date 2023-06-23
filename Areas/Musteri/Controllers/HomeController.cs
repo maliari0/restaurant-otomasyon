@@ -81,7 +81,7 @@ namespace restaurant.Areas.Musteri.Controllers // namespace düzenleme ile homec
             if (!ModelState.IsValid)
             {
                 blog.Tarih = DateTime.Now;
-                //yorum tarihi müşteri girmeyecek, sistemden biz çekeceğiz.
+                //yorum tarihi müşteri girmeyecek, sistemden biz çekeceğiz. şuan için normal yapalım.
                 var files = HttpContext.Request.Form.Files;
                 //if dosya kontrolü yaptım
                 if (files.Count > 0)
@@ -131,8 +131,6 @@ namespace restaurant.Areas.Musteri.Controllers // namespace düzenleme ile homec
         }
 
         // POST: Yonetici/Rezervasyon/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Rezervasyon([Bind("Id,Name,Email,TelefonNo,Sayi,Saat,Tarih")] Rezervasyon rezervasyon)
